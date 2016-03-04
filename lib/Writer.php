@@ -125,7 +125,7 @@ class Writer extends XMLWriter {
             list($namespace, $localName) =
                 Service::parseClarkNotation($name);
 
-            if (array_key_exists($namespace, $this->namespaceMap)) {
+            if (isset($this->namespaceMap[$namespace])) {
                 $result = $this->startElementNS(
                     $this->namespaceMap[$namespace] === '' ?  null : $this->namespaceMap[$namespace],
                     $localName,
